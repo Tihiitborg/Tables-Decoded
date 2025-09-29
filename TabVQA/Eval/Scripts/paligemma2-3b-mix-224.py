@@ -10,9 +10,10 @@ import Levenshtein
 
 # === Configuration ===
 MODEL_PATH = "google/paligemma2-3b-mix-224"
-CSV_PATH = "./torque-qa.csv"
-IMAGE_DIR = "../HindiTableImages/"
-OUTPUT_FILE = "paligemma_results.jsonl"
+CSV_PATH = "../Data/torque-qa.csv"
+OUTPUT_FILE = "../Results/paligemma2-3b-mix-224.jsonl"
+# proposed TORQUE dataset path to be put here
+IMAGE_DIR = "../../HindiTableImages/"
 
 # === Device Setup ===
 os.environ["CUDA_VISIBLE_DEVICES"] = "4"  # Use GPU 1

@@ -10,10 +10,11 @@ from tqdm import tqdm
 import Levenshtein
 
 # === Configuration ===
-MODEL_DIR = "/projects/data/vision-team/jahanvi_rajput/nitin/cogvlm-chat-hf"
-CSV_PATH = "./torque-qa.csv"
-IMAGE_DIR = "../HindiTableImages/"
-OUTPUT_FILE = "cogvlm_results.jsonl"
+MODEL_DIR = "THUDM/cogvlm-chat-hf"
+CSV_PATH = "../Data/torque-qa.csv"
+OUTPUT_FILE = "../Results/cogvlm-chat-hf.jsonl"
+# proposed TORQUE dataset path to be put here
+IMAGE_DIR = "../../HindiTableImages/"
 
 DEVICE = "cuda:0"  # After masking, cuda:0 points to physical GPU 7
 

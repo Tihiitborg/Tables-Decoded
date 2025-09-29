@@ -10,9 +10,11 @@ import Levenshtein
 
 # === Configuration ===
 MODEL_NAME = "Salesforce/blip2-opt-2.7b"
-CSV_PATH = "./torque-qa.csv"
-IMAGE_DIR = "../HindiTableImages/"
-OUTPUT_FILE = "blip2_results.jsonl"
+CSV_PATH = "../Data/torque-qa.csv"
+OUTPUT_FILE = "../Results/blip2-opt-2.7b.jsonl"
+# proposed TORQUE dataset path to be put here
+IMAGE_DIR = "../../HindiTableImages/"
+
 
 # === Device Setup ===
 os.environ["CUDA_VISIBLE_DEVICES"] = "7"  # Use GPU 7

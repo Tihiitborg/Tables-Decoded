@@ -12,9 +12,12 @@ import shutil
 # === Configuration ===
 MODEL_PATH = "meta-llama/Llama-3.2-11B-Vision-Instruct"
 LOCAL_SAVE_PATH = "./local_llama_model"
-CSV_PATH = "./torque-qa.csv"
-IMAGE_DIR = "./HindiTableImages/"
-OUTPUT_FILE = "llama_results.jsonl"
+CSV_PATH = "../Data/torque-qa.csv"
+OUTPUT_FILE = "../Results/llama-3.2-11B-Vision-Instruct.jsonl"
+# proposed TORQUE dataset path to be put here
+IMAGE_DIR = "../../HindiTableImages/"
+
+
 
 # === Device Setup ===
 os.environ["CUDA_VISIBLE_DEVICES"] = "3"

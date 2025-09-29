@@ -9,9 +9,12 @@ import Levenshtein
 
 # === Configuration ===
 MODEL_NAME = "llava-hf/llava-1.5-7b-hf"
-CSV_PATH = "./torque-qa.csv"
-IMAGE_DIR = "../HindiTableImages/"
-OUTPUT_FILE = "llava_results.jsonl"
+CSV_PATH = "../Data/torque-qa.csv"
+OUTPUT_FILE = "../Results/llava-1.5-7b-hf.jsonl"
+# proposed TORQUE dataset path to be put here
+IMAGE_DIR = "../../HindiTableImages/"
+
+
 
 # === Device Setup ===
 os.environ["CUDA_VISIBLE_DEVICES"] = "7"  # Use GPU 7

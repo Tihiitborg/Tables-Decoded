@@ -16,10 +16,11 @@ import Levenshtein
 
 # === Configuration ===
 MODEL_NAME = "OpenGVLab/InternVL3_5-8B"
-LOCAL_MODEL_PATH = "../InternVL3_5-8B"
-CSV_PATH = "../torque-qa.csv"
-IMAGE_DIR = "../HindiTableImages/"
-OUTPUT_FILE = "internvl3.5_results.jsonl"
+LOCAL_MODEL_PATH = "./InternVL3_5-8B"
+CSV_PATH = "../Data/torque-qa.csv"
+OUTPUT_FILE = "../Results/internVL3_5-8B.jsonl"
+# proposed TORQUE dataset path to be put here
+IMAGE_DIR = "../../HindiTableImages/"
 
 # Set GPU
 os.environ["CUDA_VISIBLE_DEVICES"] = "7"  # Use GPU 7

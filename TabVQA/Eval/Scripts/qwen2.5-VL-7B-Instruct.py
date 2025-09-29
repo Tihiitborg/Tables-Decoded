@@ -11,9 +11,10 @@ import Levenshtein
 
 # === Configuration ===
 MODEL_PATH = "Qwen/Qwen2.5-VL-7B-Instruct"
-CSV_PATH = "./torque-qa.csv"
-IMAGE_DIR = "../HindiTableImages/"
-OUTPUT_FILE = "qwen_results.jsonl"
+CSV_PATH = "../Data/torque-qa.csv"
+OUTPUT_FILE = "../Results/qwen2.5-VL-7B-Instruct.jsonl"
+# proposed TORQUE dataset path to be put here
+IMAGE_DIR = "../../HindiTableImages/"
 
 # === Device Setup ===
 os.environ["CUDA_VISIBLE_DEVICES"] = "4"  # Use GPU 1
