@@ -28,6 +28,7 @@ TORQUE is a Hindi benchmark designed for evaluating both **table reconstruction*
 ## Directory Structure
 
 - `TORQUE/`
+  - `Evaluation/` – Contains Htmlwork,Otslwork and Torque dataset
   - `sample_images/` – Contains sample table images from the dataset  
   - `qa_pairs.json` – JSON file containing a few QA pairs  
   - `README.md` – This README file  
