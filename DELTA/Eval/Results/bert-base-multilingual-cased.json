@@ -1,0 +1,9 @@
+{
+  "total_samples": 422,
+  "exact_match": 1,
+  "exact_match_accuracy": 0.23696682464454977,
+  "lenient_match": 4,
+  "lenient_match_accuracy": 0.9478672985781991,
+  "relieved_match": 2,
+  "relieved_accuracy": 0.47393364928909953
+}
