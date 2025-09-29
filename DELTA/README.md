@@ -14,10 +14,11 @@ The `./Eval/` directory contains resources for evaluating various baseline model
 ## Evaluation Script Overview
 The script in `./Eval/Scripts/` evaluates various multilingual models for extractive QA on Hindi questions and HTML table content. Key functionalities include:
 - **Model Configuration**:
-  - Model: `bert-base-multilingual-cased` (default) or other models like `Qwen-2.5-14B-Hindi` (configurable via `model_path="../Qwen-2.5-14B-Hindi"`).
+  - Model: check `main()` function for it , set via `model_path` in `*QA*` class.
   - Device: Uses CUDA if available, otherwise CPU.
+  - Check `main()` function for changing output file names / paths.
 - **Input Data**:
-  - JSON file: `../torque_hindi_qa.json` (contains questions, HTML content, and ground truth answers).
+  - JSON file: `../Data/torque_hindi_qa.json` (contains questions, HTML content, and ground truth answers).
 - **Output**:
   - Predictions saved to `*.jsonl` in `./Eval/Results/`, with each line containing a prediction (index, question, ground truth, predicted answer, confidence, Levenshtein score, and match indicators).
   - Summary statistics saved to `*.json`.
@@ -27,7 +28,7 @@ The script in `./Eval/Scripts/` evaluates various multilingual models for extrac
     - Levenshtein ≥ 0.8 Accuracy (% of predictions with Levenshtein similarity ≥ 0.8).
     - Relieved Accuracy (FinTabNet-style, based on normalized string comparison).
 - **Process**:
-  - Initializes the `HindiQAInference` class, which downloads and loads the model if not already present.
+  - Initializes the `*QA*` class, which downloads and loads the model if not already present.
   - Parses HTML tables into structured text for context.
   - Generates answers using a QA pipeline with multiple prompt strategies (direct, Hindi-instructed, and focused prompts).
   - Cleans answers to remove noise and improve relevance (e.g., removing Hindi particles, extracting numbers/percentages).

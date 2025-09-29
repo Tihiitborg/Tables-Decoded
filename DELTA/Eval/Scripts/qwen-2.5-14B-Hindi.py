@@ -289,7 +289,7 @@ def main():
     qa_inference.download_and_load_model()
     
     # Load the dataset
-    data_path = "../torque_hindi_qa.json"
+    data_path = "../Data/torque_hindi_qa.json"
     print(f"Loading dataset from {data_path}...")
     
     with open(data_path, 'r', encoding='utf-8') as f:
@@ -344,11 +344,11 @@ def main():
         predictions.append(prediction_data)
         
         # Append to JSONL file after each prediction
-        with open("qwen_results.jsonl", "a", encoding="utf-8") as f:
+        with open("../Results/qwen-2.5-14B-Hindi.jsonl", "a", encoding="utf-8") as f:
             f.write(json.dumps(prediction_data, ensure_ascii=False) + "\n")
     
     # Save predictions to JSONL file (complete)
-    output_file = "qwen_results.jsonl"
+    output_file = "../Results/qwen-2.5-14B-Hindi.jsonl"
     print(f"Saving predictions to {output_file}...")
     
     with open(output_file, 'w', encoding='utf-8') as f:
@@ -373,10 +373,10 @@ def main():
         "relieved_accuracy": relieved_match / total * 100
     }
     
-    with open("qwen_stats.json", 'w', encoding='utf-8') as f:
+    with open("../Results/qwen-2.5-14B-Hindi.json", 'w', encoding='utf-8') as f:
         json.dump(stats, f, ensure_ascii=False, indent=2)
-    
-    print("Statistics saved to qwen_stats.json")
+
+    print("Statistics saved to ../Results/qwen-2.5-14B-Hindi.json")
 
 if __name__ == "__main__":
     main()

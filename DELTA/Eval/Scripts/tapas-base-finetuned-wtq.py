@@ -346,7 +346,7 @@ def main():
     qa_system = TapasHindiQA()
     
     # Load the dataset
-    data_path = "../torque_hindi_qa.json"
+    data_path = "../Data/torque_hindi_qa.json"
     print(f"Loading dataset from {data_path}...")
     
     try:
@@ -370,7 +370,7 @@ def main():
     predictions = []
     
     # Clear previous results file
-    output_file = "tapas_results.jsonl"
+    output_file = "../Results/tapas-base-finetuned-wtq.jsonl"
     if os.path.exists(output_file):
         os.remove(output_file)
     
@@ -465,12 +465,12 @@ def main():
         "relieved_match": relieved_match,
         "relieved_accuracy": relieved_match / total * 100 if total > 0 else 0
     }
-    
-    with open("tapas_stats.json", 'w', encoding='utf-8') as f:
+
+    with open("../Results/tapas-base-finetuned-wtq.json", 'w', encoding='utf-8') as f:
         json.dump(stats, f, ensure_ascii=False, indent=2)
     
     print(f"Results saved to {output_file}")
-    print("Statistics saved to tapas_stats.json")
+    print("Statistics saved to ../Results/tapas-base-finetuned-wtq.json")
 
 if __name__ == "__main__":
     main()

@@ -335,7 +335,7 @@ def main():
     qa_inference = HindiQAInference()
     
     # Load the dataset
-    data_path = "../torque_hindi_qa.json"
+    data_path = "../Data/torque_hindi_qa.json"
     print(f"Loading dataset from {data_path}...")
     
     with open(data_path, 'r', encoding='utf-8') as f:
@@ -395,7 +395,7 @@ def main():
             print(f"Processed {total} samples. Current accuracy: {exact_match/total*100:.2f}%")
     
     # Save predictions to JSONL file
-    output_file = "mbert_results.jsonl"
+    output_file = "../Results/bert-base-multilingual-cased.jsonl"
     print(f"Saving predictions to {output_file}...")
     
     with open(output_file, 'w', encoding='utf-8') as f:
@@ -420,10 +420,10 @@ def main():
         "relieved_accuracy": relieved_match / total * 100
     }
     
-    with open("mbert_stats.json", 'w', encoding='utf-8') as f:
+    with open("../Results/bert-base-multilingual-cased.json", 'w', encoding='utf-8') as f:
         json.dump(stats, f, ensure_ascii=False, indent=2)
-    
-    print("Statistics saved to mbert_stats.json")
+
+    print("Statistics saved to ../Results/bert-base-multilingual-cased.json")
 
 
 if __name__ == "__main__":
