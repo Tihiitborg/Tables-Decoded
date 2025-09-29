@@ -19,6 +19,8 @@ Contains pretrained or baseline models used for comparisons.
 - **`Mistral_finetuned/`**
   - Fine-tuned Mistral model on TARQA dataset.
   - Typically includes model checkpoints and configuration files.
+  - Search for `# CONFIGURATION` in all scripts od `Scripts` sub-dir to change the config
+  - All checkpoints , models , output json , etc. saved in `Results` sub-dir
 
 - **`Solar_finetuned/`**
   - Fine-tuned SOLAR model on TARQA dataset.

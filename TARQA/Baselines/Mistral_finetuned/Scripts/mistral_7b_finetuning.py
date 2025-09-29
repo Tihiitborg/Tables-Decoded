@@ -205,7 +205,7 @@ def train(model, dataloader, tokenizer, epochs=4, gradient_accumulation_steps=4)
         logger.info(f"EPOCH {epoch+1}/{epochs}")
         logger.info(f"{'='*50}")
         
-        log_path = f"mistral7bresults/tablevqa_epoch{epoch+1}.log"
+        log_path = f"../Results/tablevqa_epoch{epoch+1}.log"
         with open(log_path, "a") as f:
             f.write(f"Starting this epoch {epoch+1}\n")
         
@@ -264,9 +264,9 @@ def train(model, dataloader, tokenizer, epochs=4, gradient_accumulation_steps=4)
         logger.info(f"\nEpoch {epoch+1} Summary:")
         logger.info(f"Avg Loss: {avg_loss:.4f} | Exact Match: {exact_acc:.2f}% | Levenshtein ≥ 0.8: {sim_acc:.2f}%")
         
-        os.makedirs("mistral7bresults", exist_ok=True)
+        os.makedirs("../Results", exist_ok=True)
         
-        checkpoint_path = f"mistral7bresults/tablevqa_epoch{epoch+1}.pth"
+        checkpoint_path = f"../Results/tablevqa_epoch{epoch+1}.pth"
         torch.save({
             'epoch': epoch + 1,
             'model_state_dict': model.state_dict(),
@@ -280,7 +280,9 @@ def train(model, dataloader, tokenizer, epochs=4, gradient_accumulation_steps=4)
 
 # === Main Function ===
 def main():
-    json_path = "combined_wtq_html_otsl_sequential.json"
+    
+    # CONFIGURATION
+    json_path = "../Data/combined_wtq_html_otsl_sequential.json"
     model_name = "mistralai/Mistral-7B-Instruct-v0.3"
     max_seq_len = 3300
     batch_size = 1

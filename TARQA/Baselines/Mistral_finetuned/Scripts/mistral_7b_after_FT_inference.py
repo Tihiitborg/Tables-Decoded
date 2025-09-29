@@ -12,8 +12,8 @@ import re
 # === Setup Logging ===
 def setup_logging():
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_filename = f"./mistralFTresults/inference_log_{timestamp}.log"
-    os.makedirs("./mistralFTresults", exist_ok=True)
+    log_filename = f"../Results/mistral_inference_log_{timestamp}.log"
+    os.makedirs("../Results", exist_ok=True)
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s',
@@ -283,10 +283,11 @@ def infer_with_checkpoint(checkpoint_path, json_path, tokenizer, device, max_seq
     total = 0
     results = []
 
+    # CONFIGURATION
     # Output file setup
-    os.makedirs("./mistralFTresults", exist_ok=True)
+    os.makedirs("../Results", exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = f"./mistral7bresults/cleaned_inference_results_{timestamp}.jsonl"
+    output_file = f"../Results/mistral_7b_after_FT_inference.jsonl"
     
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write("# Mistral-7B TableVQA Cleaned Inference Results\n")
@@ -374,11 +375,14 @@ def infer_with_checkpoint(checkpoint_path, json_path, tokenizer, device, max_seq
 
 # === Main Function ===
 def main():
-    checkpoint_path = "./mistral7bresults/tablevqa_epoch4.pth"
-    json_path = "./mistral7bresults/wtq_test.json"
+    
+    # CONFIGURATION
+    json_path = "../Data/combined_wtq_html_otsl_test.json"
     model_name = "mistralai/Mistral-7B-Instruct-v0.3"
     max_seq_len = 3300
     batch_size = 1
+    # checkpoint model's path to be put here
+    checkpoint_path = "../Results/tablevqa_epoch4.pth"
 
     logger.info("=== STARTING MISTRAL INFERENCE WITH ANSWER CLEANING ===")
     logger.info(f"Checkpoint: {checkpoint_path}")
