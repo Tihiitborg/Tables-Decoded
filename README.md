@@ -1,7 +1,4 @@
-***Tables Decoded: DELTA for Structure, TARQA for Understanding***
----
-
-# 📘 Tables Decoded: DELTA for Structure, TARQA for Understanding
+# Tables Decoded: DELTA for Structure, TARQA for Understanding
 
 > **Accepted at WACV 2025**  
 > Official implementation and resources for  
@@ -9,7 +6,7 @@
 
 ---
 
-## 🧩 Abstract
+## Abstract
 
 Table understanding is a core task in document intelligence, encompassing two key subtasks: **table reconstruction** and **table visual question answering (TabVQA)**.  
 While recent approaches predominantly rely on **vision-language models (VLMs)** operating on table images, we propose a more scalable and effective alternative based on **structured textual representations**.  
@@ -110,5 +107,6 @@ If you use this work, please cite our **WACV 2025** paper:
 
 This project is licensed under the **MIT License**.
 See [LICENSE](LICENSE) for details.
+
 
 
