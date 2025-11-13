@@ -61,11 +61,11 @@ Built on DELTA, we introduce **TARQA (Table structure-Aware Representation for Q
 
 | Dataset | Description | Source |
 |----------|--------------|---------|
-| **TORQUE** | Multilingual dataset for both table reconstruction and Table visual question answering task | [Hugging Face:] (https://huggingface.co/datasets/jahanvirajput/TORQUE) |
+| **TORQUE** | Multilingual dataset for both table reconstruction and Table Visual Question Answering (TabVQA) tasks | [Hugging Face](https://huggingface.co/datasets/jahanvirajput/TORQUE) |
 | **FinTabNet** | Financial tables for table reconstruction | [IBM Developer](https://developer.ibm.com/exchanges/data/all/fintabnet/) |
 | **PubTabNet** | Scientific tables for table reconstruction | [GitHub: PubTabNet](https://github.com/ibm-aur-nlp/PubTabNet) |
-| **WTQ** | WikiTableQuestions benchmark for table question answering| [GitHub: WikiTableQuestions](https://github.com/ppasupat/WikiTableQuestions) |
-| **FinTabNetQA** | QA dataset over financial domain tables for table visual question answering task | *https://huggingface.co/datasets/terryoo/TableVQA-Bench/viewer/default/fintabnetqa* |
+| **WTQ** | WikiTableQuestions benchmark for table question answering | [GitHub: WikiTableQuestions](https://github.com/ppasupat/WikiTableQuestions) |
+| **FinTabNetQA** | QA dataset over financial domain tables for Table Visual Question Answering | [Hugging Face](https://huggingface.co/datasets/terryoo/TableVQA-Bench/viewer/default/fintabnetqa) |
 
 ---
 
@@ -96,8 +96,8 @@ If you use this paper or the accompanying code/data in your research, please cit
 ```bibtex
 @inproceedings{tablesdecoded2025,
   title={Tables Decoded: DELTA for Structure, TARQA for Understanding},
-  author={},
-  booktitle={},
+  author={Jahanvi Rajput and Dhruv Kudale and Saikiran Kasturi and Utkarsh Verma},
+  booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
   year={2025}
 }
 ```
@@ -110,6 +110,14 @@ If you use this paper or the accompanying code/data in your research, please cit
 This project is licensed under the **MIT License**.
 See [LICENSE](LICENSE) for details.
 
+---
+
+## Authors Contact Information
+
+1. Jahanvi Rajput
+2. Dhruv Kudale
+3. Saikiran Kasturi
+4. Utkarsh Verma
 
 
 
