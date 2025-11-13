@@ -5,7 +5,7 @@
     <img src="https://img.shields.io/badge/arXiv-2402.09811-b31b1b.svg" alt="arXiv">
   </a>
   <a href="https://huggingface.co/datasets/jahanvirajput/TORQUE">
-    <img src="https://img.shields.io/badge/Data-🤗%20HuggingFace-yellow.svg" alt="Data">
+    <img src="https://img.shields.io/badge/Data-%F0%9F%A4%97%20HuggingFace-yellow.svg" alt="Data">
   </a>
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
@@ -115,6 +115,7 @@ If you use this work, please cite our **WACV 2025** paper:
 
 This project is licensed under the **MIT License**.
 See [LICENSE](LICENSE) for details.
+
 
 
 
