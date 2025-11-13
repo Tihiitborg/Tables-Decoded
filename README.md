@@ -8,12 +8,9 @@
 
 ## Abstract
 
-Table understanding is a core task in document intelligence, encompassing two key subtasks: **table reconstruction** and **table visual question answering (TabVQA)**.  
-While recent approaches predominantly rely on **vision-language models (VLMs)** operating on table images, we propose a more scalable and effective alternative based on **structured textual representations**.  
-
-These representations are easier to process, align naturally with **large language models (LLMs)**, and remove the need for language-specific visual encoders — making them ideal for **multilingual documents**.  
-We present **DELTA**, a *decoupled table reconstruction framework* that separates structure recognition from OCR to extract both layout and content accurately. DELTA outputs tables in **Optimized Table Structure Language (OTSL)**, a compact and unified format that encodes cell arrangements and textual content. DELTA achieves high-fidelity table-to-text conversion, outperforming prior methods on structure metrics with superior **TEDS-Structure** scores across **FinTabNet**, **PubTabNet**, and **PubTables**.  
+Table understanding is a core task in document intelligence, encompassing two key subtasks: **table reconstruction** and **table visual question answering (TabVQA)**. While recent approaches predominantly rely on **vision-language models (VLMs)** operating on table images, we propose a more scalable and effective alternative based on **structured textual representations**. These representations are easier to process, align naturally with **large language models (LLMs)**, and remove the need for language-specific visual encoders — making them ideal for **multilingual documents**. We present **DELTA**, a *decoupled table reconstruction framework* that separates structure recognition from OCR to extract both layout and content accurately. DELTA outputs tables in **Optimized Table Structure Language (OTSL)**, a compact and unified format that encodes cell arrangements and textual content. DELTA achieves high-fidelity table-to-text conversion, outperforming prior methods on structure metrics with superior **TEDS-Structure** scores across **FinTabNet**, **PubTabNet**, and **PubTables**.  
 Built on DELTA, we introduce **TARQA (Table structure-Aware Representation for Question Answering)** — an LLM fine-tuned on OTSL-formatted tables for accurate and structure-aware **TabVQA**. TARQA outperforms baselines fine-tuned on HTML representations by **14.2%**, and improves answer accuracy on **WTQ** by **6.8%** and **FinTabNetQA** by **9.2%**.  
+
 ---
 
 ## 📁 Repository Structure
@@ -107,6 +104,7 @@ If you use this work, please cite our **WACV 2025** paper:
 
 This project is licensed under the **MIT License**.
 See [LICENSE](LICENSE) for details.
+
 
 
 
