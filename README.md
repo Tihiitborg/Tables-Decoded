@@ -1,7 +1,6 @@
 ***Tables Decoded: DELTA for Structure, TARQA for Understanding***
 ---
 
-```
 # 📘 Tables Decoded: DELTA for Structure, TARQA for Understanding
 
 > **Accepted at WACV 2025**  
@@ -112,9 +111,4 @@ If you use this work, please cite our **WACV 2025** paper:
 This project is licensed under the **MIT License**.
 See [LICENSE](LICENSE) for details.
 
-```
 
----
-
-Would you like me to add a **“Model Architecture” diagram section** (DELTA → OTSL → TARQA flow) in Markdown using Mermaid or image reference? It would make it more visually appealing for GitHub and citations.
-```
