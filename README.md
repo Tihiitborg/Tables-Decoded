@@ -24,7 +24,7 @@ Table understanding is a core task in document intelligence, encompassing two ke
 Built on DELTA, we introduce **TARQA (Table structure-Aware Representation for Question Answering)** — an LLM fine-tuned on OTSL-formatted tables for accurate and structure-aware **TabVQA**. TARQA outperforms baselines fine-tuned on HTML representations by **14.2%**, and improves answer accuracy on **WTQ** by **6.8%** and **FinTabNetQA** by **9.2%**.  
 
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 
@@ -38,7 +38,7 @@ Built on DELTA, we introduce **TARQA (Table structure-Aware Representation for Q
 
 ---
 
-## ⚙️ Framework Overview
+## Framework Overview
 
 | Component | Description |
 |------------|-------------|
@@ -78,12 +78,6 @@ cd Tables-Understanding
 pip install -r requirements.txt
 ````
 
----
-
-## Results
-
----
-
 ## Ablation Studies
 
 Located under `Ablation/`, covering:
@@ -97,7 +91,7 @@ Located under `Ablation/`, covering:
 
 ## Citation
 
-If you use this work, please cite our **WACV 2025** paper:
+If you use this paper or the accompanying code/data in your research, please cite it as:
 
 ```bibtex
 @inproceedings{tablesdecoded2025,
@@ -115,6 +109,7 @@ If you use this work, please cite our **WACV 2025** paper:
 
 This project is licensed under the **MIT License**.
 See [LICENSE](LICENSE) for details.
+
 
 
 
