@@ -1,9 +1,19 @@
-# Tables Decoded: DELTA for Structure, TARQA for Understanding
+<h1 align="center"> Tables Decoded: DELTA for Structure, TARQA for Understanding </h1>
 
-[![arXiv](https://img.shields.io/badge/arXiv-2402.09811-b31b1b.svg)](https://openreview.net/pdf?id=edxr8WG3vK)
-[![Data](https://img.shields.io/badge/Data-%F0%9F%A4%97%20HuggingFace-yellow.svg)](https://huggingface.co/datasets/jahanvirajput/TORQUE)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Code](https://img.shields.io/badge/Code-GitHub-blue.svg)](https://github.com/JahanviRajputTIH/Tables-Understanding)
+<p align="center">
+  <a href="https://openreview.net/pdf?id=edxr8WG3vK">
+    <img src="https://img.shields.io/badge/arXiv-2402.09811-b31b1b.svg" alt="arXiv">
+  </a>
+  <a href="https://huggingface.co/datasets/jahanvirajput/TORQUE">
+    <img src="https://img.shields.io/badge/Data-%F0%9F%A4%97%20HuggingFace-yellow.svg" alt="Data">
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
+  </a>
+  <a href="https://github.com/JahanviRajputTIH/Tables-Understanding">
+    <img src="https://img.shields.io/badge/Code-GitHub-blue.svg" alt="Code">
+  </a>
+</p>
 
 ---
 
@@ -38,7 +48,7 @@ Built on DELTA, we introduce **TARQA (Table structure-Aware Representation for Q
 
 ---
 
-## 🧠 Key Highlights
+## Key Highlights
 
 - **Text-based table representation** → more scalable than VLM-based approaches.  
 - **Multilingual compatibility** → no dependence on visual encoders.  
@@ -59,9 +69,9 @@ Built on DELTA, we introduce **TARQA (Table structure-Aware Representation for Q
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
-### 1️⃣ Installation
+### Installation
 ```bash
 git clone https://github.com/JahanviRajputTIH/Tables-Understanding.git
 cd Tables-Understanding
@@ -70,11 +80,11 @@ pip install -r requirements.txt
 
 ---
 
-## 📈 Results
+## Results
 
 ---
 
-## 🔬 Ablation Studies
+## Ablation Studies
 
 Located under `Ablation/`, covering:
 
@@ -85,7 +95,7 @@ Located under `Ablation/`, covering:
 
 ---
 
-## 🧾 Citation
+## Citation
 
 If you use this work, please cite our **WACV 2025** paper:
 
@@ -101,10 +111,11 @@ If you use this work, please cite our **WACV 2025** paper:
 ---
 
 
-## 🏁 License
+## License
 
 This project is licensed under the **MIT License**.
 See [LICENSE](LICENSE) for details.
+
 
 
 
