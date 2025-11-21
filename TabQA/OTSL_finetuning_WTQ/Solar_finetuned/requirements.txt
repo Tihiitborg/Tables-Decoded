@@ -1,0 +1,12 @@
+einops
+Pillow
+torch
+torchvision
+transformers==4.40.2
+sentencepiece
+protobuf
+GPUtil
+Levenshtein
+accelerate==0.29.3
+peft
+deepspeed==0.10.3
