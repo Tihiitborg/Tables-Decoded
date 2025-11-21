@@ -1,6 +1,7 @@
 import torch
 import json
 import os
+import re
 from tqdm import tqdm
 import Levenshtein
 from transformers import AutoTokenizer, LlamaForCausalLM
@@ -8,6 +9,18 @@ from transformers import AutoTokenizer, LlamaForCausalLM
 # === Device Setup ===
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
+
+# === Normalize function for FinTabNet-style relieved accuracy ===
+def fintabnet_normalize(text):
+    def _normalize(s):
+        s = s.strip().lower()
+        s = re.sub(r"\s+", " ", s)
+        s = re.sub(r"[,\.]", "", s)  # remove commas/periods
+        s = s.replace(" ", "")
+        return s
+
+    gt = _normalize(text)
+    return gt, [gt]
 
 # === Model Wrapper ===
 class TableVQAModel(torch.nn.Module):
@@ -25,6 +38,7 @@ class TableVQAModel(torch.nn.Module):
         outputs = self.model(input_ids=input_ids, labels=labels)
         return outputs.loss, outputs.logits
 
+# === Answer Extractor ===
 def extract_answer(decoded_output, input_text):
     decoded_output = decoded_output.lower()
     if "### answer:" in decoded_output:
@@ -34,11 +48,11 @@ def extract_answer(decoded_output, input_text):
     else:
         return decoded_output.replace(input_text.lower(), "").strip()
 
-# === Main Evaluation Logic ===
+# === Main Evaluation ===
 def main():
     model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
-    checkpoint_path = "/llama8bresults/tablevqa_epoch4.pth"  # update epoch number as needed
-    test_path = "src/model/fintabnetqa_with_otsl.json"
+    checkpoint_path = "/../tablevqa_epoch4.pth"  # update epoch number as needed
+    test_path = "../../fintabnetqa_with_otsl.json"
 
     # === Tokenizer and Model ===
     tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -62,6 +76,7 @@ def main():
 
     exact_match = 0
     similar_match = 0
+    relieved_match = 0
     total = 0
     predictions = []
 
@@ -108,8 +123,14 @@ def main():
         is_exact = predicted_answer == ground_truth
         is_similar = lev_score >= 0.8
 
+        # === Relieved Accuracy ===
+        norm_pred, norm_preds = fintabnet_normalize(predicted_answer)
+        norm_gt, norm_gts = fintabnet_normalize(ground_truth)
+        relieved_loose = int(any(_p == _g for _p in norm_preds for _g in norm_gts))
+
         exact_match += int(is_exact)
         similar_match += int(is_similar)
+        relieved_match += relieved_loose
         total += 1
 
         predictions.append({
@@ -118,19 +139,21 @@ def main():
             "predicted_answer": predicted_answer,
             "levenshtein_score": lev_score,
             "exact_match": is_exact,
-            "lenient_match": is_similar
+            "lenient_match": is_similar,
+            "relieved_match": relieved_loose
         })
 
-        print(f"[{idx+1}/{len(test_data)}] EM: {exact_match/total:.2%}, Lev≥0.8: {similar_match/total:.2%}")
+        print(f"[{idx+1}/{len(test_data)}] EM: {exact_match/total:.2%}, Lev≥0.8: {similar_match/total:.2%}, Relieved: {relieved_match/total:.2%}")
 
     print("\n=== Final Evaluation ===")
-    print(f"Total Samples             : {total}")
-    print(f"Exact Match Accuracy      : {exact_match / total * 100:.2f}%")
-    print(f"Levenshtein ≥ 0.8 Accuracy: {similar_match / total * 100:.2f}%")
+    print(f"Total Samples                 : {total}")
+    print(f"Exact Match Accuracy          : {exact_match / total * 100:.2f}%")
+    print(f"Levenshtein ≥ 0.8 Accuracy    : {similar_match / total * 100:.2f}%")
+    print(f"Relieved Accuracy (FinTabNet) : {relieved_match / total * 100:.2f}%")
 
     # Save predictions
-    os.makedirs("llama8bresults", exist_ok=True)
-    output_file = "/llama8bresults/predictions_epoch4.json"
+    os.makedirs("results", exist_ok=True)
+    output_file = "/results/predictions_fintabnet_epoch4.json"
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(predictions, f, indent=2, ensure_ascii=False)
     print(f"Predictions saved to {output_file}")
@@ -145,6 +168,7 @@ def main():
         print(f"Levenshtein     : {pred['levenshtein_score']:.2f}")
         print(f"Exact Match     : {pred['exact_match']}")
         print(f"Lenient Match   : {pred['lenient_match']}")
+        print(f"Relieved Match  : {pred['relieved_match']}")
 
 if __name__ == "__main__":
     main()
