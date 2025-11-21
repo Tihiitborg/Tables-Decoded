@@ -37,8 +37,8 @@ def extract_answer(decoded_output, input_text):
 # === Main Evaluation Logic ===
 def main():
     model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
-    checkpoint_path = "/llama8bresults/tablevqa_epoch4.pth"  # update epoch number as needed
-    test_path = "src/model/combined_wtq_html_otsl_test.json"
+    checkpoint_path = "/../tablevqa_epoch4.pth"  # update epoch number as needed and for pth see in releases section
+    test_path = "../Data/combined_wtq_html_otsl_test.json"
 
     # === Tokenizer and Model ===
     tokenizer = AutoTokenizer.from_pretrained(model_name)
