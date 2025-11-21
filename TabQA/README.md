@@ -36,7 +36,7 @@ This evaluation demonstrates:
 
 ---
 
-# Repository Flow — TabQA (WTQ Evaluation)
+### Repository Flow — TabQA (WTQ Evaluation)
 
 
 ```
@@ -44,19 +44,20 @@ TabQA/
 │
 ├── OTSL_finetuning_WTQ/
 │   ├── Mistral_finetuned/
-│   │   ├── Data/        # Processed OTSL training data for Mistral
+│   │   ├── Data/        # Processed WTQ training data 
 │   │   ├── Results/     # Fine-tuned model outputs & metrics
 │   │   └── Scripts/     # Training scripts for OTSL finetuning
-│   │
-│   └── Solar_finetuned/ # Same structure as Mistral_finetuned
-│
+│   └── Solar_finetuned/ 
+│   |   ├── Data/        # Processed WTQ training data 
+│   │   ├── Results/     # Fine-tuned model outputs & metrics
+│   │   └── Scripts/     # Training scripts for OTSL finetuning
 └── Results_test_WTQ/
-    ├── Data/                          # WTQ test set (HTML, OTSL, Plaintext)
+    ├── Data/            # WTQ test set (HTML, OTSL, Plaintext)
     ├── Tarqa_on_html/
-    │   └── Scripts/                   # Eval scripts for HTML tables
+    │   └── Scripts/     # Eval scripts for HTML tables
     ├── Tarqa_on_otsl/
-    │   └── Scripts/                   # Eval scripts for OTSL tables
+    │   └── Scripts/      # Eval scripts for OTSL tables
     └── Tarqa_on_plaintext/
-        └── Scripts/                   # Eval scripts for Plaintext tables (this folder)
+        └── Scripts/     # Eval scripts for Plaintext tables
 ```
 
