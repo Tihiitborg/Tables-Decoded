@@ -1,3 +1,97 @@
+## TabVQA task on FinTabNetQA 
+
+We evaluate the performance of our integrated pipeline, **DELTA + TARQA**, on the **FinTabNetQA** dataset. Our approach is compared against a wide range of open-source and closed-source Vision–Language Models. As shown below, **our OTSL-based pipeline achieves the highest score among all non-skyline methods**, demonstrating the effectiveness of structured table reconstruction in boosting downstream TabVQA performance.
+
+### FinTabNetQA Relieved Accuracy Results
+
+
+| **Type**        | **Model**                     | **FinTabNetQA** |
+|-----------------|-------------------------------|:---------------:|
+| **Open-source** | BLIP-2                        | 0.4             |
+|                 | CogVLM-1k                     | 4.8             |
+|                 | CogAgent-VQA                  | 22.8            |
+|                 | SPHINX-v1-1k                  | 3.2             |
+|                 | LLaVA-1.5                     | 0.8             |
+|                 | QWEN-VL-Chat                  | 29.6            |
+|                 | QWEN-VL                       | 34.0            |
+| **Closed-source** | SPHINX-MoE-1k               | *36.0*          |
+|                 | SPHINX-v2-1k                  | 31.2            |
+|                 | SPHINX-MoE                    | 2.8             |
+| **Ours**        | **DELTA + TARQA-HTML**     | 29.2            |
+|                 | **DELTA + TARQA-OTSL**     | **45.2**        |
+| **Skyline**     | GT-HTML + TARQA-HTML          | **51.2**        |
+|                 | GT-OTSL + TARQA-OTSL          | **69.2**        |
+
+
+---
+
+## Interpretation
+
+OTSL provides a more faithful, structured representation of tables compared to HTML.
+This leads to:
+
+* stronger grounding of cell relationships
+* fewer structural ambiguities
+* better alignment between question and table content
+
+Thus, when plugged into **TARQA**, OTSL consistently yields superior performance across metrics and datasets.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Eval
