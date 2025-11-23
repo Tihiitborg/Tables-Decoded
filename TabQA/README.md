@@ -48,16 +48,21 @@ TabQA/
 │   │   ├── Results/     # Fine-tuned model outputs & metrics
 │   │   └── Scripts/     # Training scripts for OTSL finetuning
 │   └── Solar_finetuned/ 
-│   |   ├── Data/        # Processed WTQ training data 
-│   │   ├── Results/     # Fine-tuned model outputs & metrics
-│   │   └── Scripts/     # Training scripts for OTSL finetuning
+│       ├── Data/        # Processed WTQ training data 
+│       ├── Results/     # Fine-tuned model outputs & metrics
+│       └── Scripts/     # Training scripts for OTSL finetuning
+│
 └── Results_test_WTQ/
-    ├── Data/            # WTQ test set (HTML, OTSL, Plaintext)
+    ├── Data/                 # WTQ test set (HTML, OTSL, Plaintext)
     ├── Tarqa_on_html/
-    │   └── Scripts/     # Eval scripts for HTML tables
+    │   ├── Scripts/          # Eval scripts for HTML tables
+    │   └── Results/          # Evaluation outputs, predictions & metrics
     ├── Tarqa_on_otsl/
-    │   └── Scripts/      # Eval scripts for OTSL tables
+    │   ├── Scripts/          # Eval scripts for OTSL tables
+    │   └── Results/          # Evaluation outputs, predictions & metrics
     └── Tarqa_on_plaintext/
-        └── Scripts/     # Eval scripts for Plaintext tables
+        ├── Scripts/          # Eval scripts for Plaintext tables
+        └── Results/          # Evaluation outputs, predictions & metrics
+
 ```
 
