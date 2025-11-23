@@ -119,13 +119,13 @@ def train(model, dataloader, tokenizer, epochs=8):
         print(f"Exact Match Accuracy: {exact_acc:.2f}%")
         print(f"Levenshtein ≥ 0.8 Accuracy: {sim_acc:.2f}%")
 
-        os.makedirs("llama8bresults", exist_ok=True)
-        torch.save(model.state_dict(), f"/llama8bresults/tablevqa_epoch{epoch+1}.pth")
-        print(f"Model checkpoint saved: llama8bresults/tablevqa_epoch{epoch+1}.pth")
+        os.makedirs("Results", exist_ok=True)
+        torch.save(model.state_dict(), f"/Results/tablevqa_epoch{epoch+1}.pth") #See in the releases section for .pth files
+        print(f"Model checkpoint saved: Results/tablevqa_epoch{epoch+1}.pth")
 
 # === Main ===
 def main():
-    json_path = "src/model/combined_wtq_html_otsl_sequential.json"
+    json_path = "../Data/combined_wtq_html_otsl_sequential.json"
     model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)

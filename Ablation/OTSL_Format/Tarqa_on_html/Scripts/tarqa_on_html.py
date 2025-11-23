@@ -7,10 +7,11 @@ from transformers import AutoTokenizer, LlamaForCausalLM
 from tqdm import tqdm
 import Levenshtein
 
+# === Device Setup ===
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
-# === Dataset Class using plain_text ===
+# === Dataset Class using HTML format ===
 class TableVQADataset(Dataset):
     def __init__(self, json_path, tokenizer, max_seq_len=4096):
         print(f"Loading dataset from {json_path}")
@@ -27,10 +28,10 @@ class TableVQADataset(Dataset):
         entry = self.data[idx]
         question = entry["question"]
         answer = entry["answer_text"]
-        table_context = entry["plain_text"]
+        table_context = entry["html"]  # Use HTML instead of OTSL
 
         input_text = f"""### Instruction:
-        Given the following table in plain text, answer the question in one word or short phrase. Do not provide an explanation.
+        Given the following HTML table, answer the question in one word or short phrase. Do not provide an explanation.
 
         ### Table:
         {table_context}
@@ -121,13 +122,13 @@ def train(model, dataloader, tokenizer, epochs=6):
         print(f"Exact Match Accuracy: {exact_acc:.2f}%")
         print(f"Levenshtein ≥ 0.8 Accuracy: {sim_acc:.2f}%")
 
-        os.makedirs("llama8bplainresults", exist_ok=True)
-        torch.save(model.state_dict(), f"/llama8bplainresults/tablevqa_plaintext_epoch{epoch+1}.pth")
-        print(f"Model checkpoint saved: llama8bplainresults/tablevqa_plaintext_epoch{epoch+1}.pth")
+        os.makedirs("llama8bhtmlresults", exist_ok=True)
+        torch.save(model.state_dict(), f"/../Results/tablevqa_epoch{epoch+1}.pth")
+        print(f"Model checkpoint saved: Results/tablevqa_epoch{epoch+1}.pth")
 
 # === Main Function ===
 def main():
-    json_path = "src/model/wtq_html_otsl_plain_md_train.json"  # Update if needed
+    json_path = "../../Data/combined_wtq_html_otsl_sequential.json"
     model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -140,9 +141,9 @@ def main():
     global optimizer
     optimizer = torch.optim.AdamW(model.parameters(), lr=2e-5)
 
-    train(model, dataloader, tokenizer, epochs=6)
+    train(model, dataloader, tokenizer, epochs=4)
 
-    # === Sample Inference ===
+    # === Sample Inference on 10 Examples ===
     model.eval()
     print("\nSample Predictions after Training:")
     count = 0
@@ -182,5 +183,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 

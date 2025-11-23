@@ -37,8 +37,8 @@ def extract_answer(decoded_output, input_text):
 # === Main Evaluation Logic ===
 def main():
     model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
-    checkpoint_path = "/llama8bhtmlresults/tablevqa_epoch3.pth"  # Change as needed
-    test_path = "src/model/combined_wtq_html_otsl_test.json"  # Path to test set
+    checkpoint_path = "/Results/tablevqa_epoch3.pth"  # Change as needed
+    test_path = "../../Data/combined_wtq_html_otsl_test.json"  # Path to test set
 
     # === Tokenizer and Model ===
     tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -129,8 +129,8 @@ def main():
     print(f"Levenshtein ≥ 0.8 Accuracy: {similar_match / total * 100:.2f}%")
 
     # Save predictions
-    os.makedirs("llama8bhtmlresults", exist_ok=True)
-    output_file = "/llama8bhtmlresults/predictions_epoch3_html.json"
+    os.makedirs("Results", exist_ok=True)
+    output_file = "../Results/predictions_html.json"
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(predictions, f, indent=2, ensure_ascii=False)
     print(f"Predictions saved to {output_file}")
