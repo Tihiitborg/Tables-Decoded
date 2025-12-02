@@ -130,7 +130,7 @@ def main():
 
     # Save predictions
     os.makedirs("results", exist_ok=True)
-    output_file = "/results/predictions_fintabnet_epoch4.json"
+    output_file = "/results/predictions_fintabnet.json"
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(predictions, f, indent=2, ensure_ascii=False)
     print(f"Predictions saved to {output_file}")
