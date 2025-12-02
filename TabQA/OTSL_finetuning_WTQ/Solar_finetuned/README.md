@@ -44,7 +44,7 @@ Your dataset JSON file should follow this structure:
 
 **Default dataset path:**
 
-    src/model/combined_wtq_html_otsl_sequential.json
+    ../Data/combined_wtq_html_otsl_sequential.json
 
 ------------------------------------------------------------------------
 
@@ -61,7 +61,7 @@ Your dataset JSON file should follow this structure:
 
 Run the main script:
 
-    python train_tablevqa.py
+    python sonar10b_finetune_wtq.py
 
 This will:
 
@@ -88,7 +88,7 @@ At the end of each epoch, the model is saved in two formats:
 
 ### **PyTorch weights**
 
-    solar10b_results/tablevqa_epoch.pth
+    solar10b_results/tablevqa_epoch.pth #See in releases for pth files
 
 ### **HuggingFace model + tokenizer**
 
