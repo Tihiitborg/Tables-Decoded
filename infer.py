@@ -1,0 +1,1 @@
+## scripts for inference DELTA + TARQA for TabVQA Task
